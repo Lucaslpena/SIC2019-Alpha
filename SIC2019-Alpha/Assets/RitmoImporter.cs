@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class RitmoImporter : MonoBehaviour
 {
+    public BeatController BeatController;
     public TextAsset TextFile;
+    private Beat Beat;
 
     private void Awake()
     {
+        Beat = new Beat();
         readTextFileLines();
     }
 
@@ -17,8 +20,8 @@ public class RitmoImporter : MonoBehaviour
 
         foreach (string line in linesInFile)
         {
-            Debug.Log(line);
+            Beat.PopulateBeat(line);
         }
-
+        BeatController.Beat = Beat;
     }
 }

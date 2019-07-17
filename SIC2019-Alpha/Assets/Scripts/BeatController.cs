@@ -25,15 +25,19 @@ public class BeatController : MonoBehaviour
     public List<GameObject> _kicks { get; private set; }
     public List<GameObject> _hatsC { get; private set; }
 
-    private float UnityTempo;
+    public Beat Beat;
+
+    private int quartina;
+
+    //private float UnityTempo;
     public float Tempo = 60;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        UnityTempo =  Tempo / TEMPO_CONSTANT;
-
+        //UnityTempo =  Tempo / TEMPO_CONSTANT;
+        quartina = 0;
         _hatsO = new List<GameObject>();
         _snares = new List<GameObject>();
         _kicks = new List<GameObject>();
@@ -45,45 +49,73 @@ public class BeatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        Debug.Log(quartina);
     }
 
-    private void IstantiateBeatCube()
+    private void IstantiateCube(int instrument)
     {
-        int randomCube = (int)Random.Range(0, 4);
-        switch (randomCube)
+        switch (instrument)
         {
             case (int)CubeType.HatO:
                 GameObject gHO = CreateCube(HatO, HatOpenPrefab);
                 gHO.GetComponent<CubeBehaviour>().SetCubeType((int)CubeType.HatO);
                 _hatsO.Add(gHO);
-                //Debug.Log(_hatsO.Count);
+                Debug.Log("Hat");
                 break;
             case (int)CubeType.Snare:
                 GameObject gS = CreateCube(Snare, SnarePrefab);
                 gS.GetComponent<CubeBehaviour>().SetCubeType((int)CubeType.Snare);
                 _snares.Add(gS);
-                //Debug.Log(_snares.Count);
+                Debug.Log("Snare");
                 break;
             case (int)CubeType.Kick:
                 GameObject gC = CreateCube(Kick, KickPrefab);
                 gC.GetComponent<CubeBehaviour>().SetCubeType((int)CubeType.Kick);
                 _kicks.Add(gC);
-                //Debug.Log(_kicks.Count);
+                Debug.Log("Kick");
                 break;
             case (int)CubeType.HatC:
                 GameObject gHC = CreateCube(HatC, HatClosedPrefab);
                 gHC.GetComponent<CubeBehaviour>().SetCubeType((int)CubeType.HatC);
                 _hatsC.Add(gHC);
-                //Debug.Log(_hatsC.Count);
+                Debug.Log("HC");
                 break;
         }
     }
 
+    private void IstantiateBeatCube()
+    {
+        if(quartina == 5)
+        {
+            quartina = 0;
+        }
+        string[] instruments = Beat._beat[quartina];
+        for(int i = 0; i<instruments.Length; i++)
+        {
+            Debug.Log("siamo con la I: " + i + " ---> " + instruments[i]);
+            if (CheckInstruments(instruments[i]))
+            {
+                IstantiateCube(i);
+            }
+        }
+        quartina++;
+    }
+
+    private bool CheckInstruments(string s)
+    {
+        if (s.Equals("1"))
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+
+    }
+
     private GameObject CreateCube(Transform cubePosition, GameObject cube)
     {
-        Vector3 randomCubePosition = cubePosition.position + new Vector3(0, 0, Tempo * Random.Range(1,2));
-        GameObject g = Instantiate(cube, randomCubePosition, Quaternion.identity, this.transform);
+        GameObject g = Instantiate(cube, cubePosition.position + new Vector3(0, 0, 60 * 2), Quaternion.identity, this.transform);
         g.transform.localScale = Vector3.one * 20f;
         return g;
     }
@@ -92,20 +124,20 @@ public class BeatController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(60/Tempo);
             IstantiateBeatCube();
         }
     }
 
     public void DisposeCube(GameObject cube, int cubeType)
     {
-        Debug.Log("cubeType: " + cubeType);
+//        Debug.Log("cubeType: " + cubeType);
         switch (cubeType)
         {
             case (int)CubeType.HatO:
-                Debug.Log("before: " + _hatsO.Count + " name cube: " + cube.name);
+                //Debug.Log("before: " + _hatsO.Count + " name cube: " + cube.name);
                 _hatsO.Remove(cube);
-                Debug.Log("after " + _hatsO.Count);
+                //Debug.Log("after " + _hatsO.Count);
                 break;
             case (int)CubeType.Snare:
                 _snares.Remove(cube);

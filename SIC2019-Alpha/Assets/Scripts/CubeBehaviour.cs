@@ -28,7 +28,7 @@ public class CubeBehaviour : MonoBehaviour
 
     private void UpdatePlayerPosition()
     {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, _stopPosition,  Time.deltaTime * _beatController.Tempo);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, _stopPosition,  Time.deltaTime * _beatController.Tempo * 2);
     }
 
     public void SetCubeType(int cubeType)
