@@ -1,25 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
 
-    private float _speed;
-    private Vector3 _startPosition;
-    private Vector3 _stopPosition;
+    public Transform Player;
+    private float _smoothSpeed = 0.125f;
+    private Vector3 _offset;
+    private Vector3 velocity = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.position = _startPosition;
-        _stopPosition = _startPosition + new Vector3(0, 0, 5000f);
+        _offset = transform.position - Player.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, _stopPosition, Time.deltaTime);   
+        UpdateCameraPosition();
     }
 
+    /// <summary>
+    /// method called during the LateUpdate to move the camera from the starting position of the scenario to the final position.
+    /// </summary>
+    private void UpdateCameraPosition()
+    {
+        Vector3 desiredPosition = Player.position + _offset;
+        //Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, _smoothSpeed);
+        transform.position = Vector3.SmoothDamp(this.transform.position, desiredPosition, ref velocity, _smoothSpeed);
+
+        transform.LookAt(Player);
+    }
 }
