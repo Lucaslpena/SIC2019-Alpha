@@ -15,7 +15,7 @@ abstract public class MidasListener : MonoBehaviour {
 	public MidasRequest midasRequest;
 
 	public bool repeat = true;
-	public float repeatFrecuencySeconds = 15f;
+	public float repeatFrecuencySeconds;
 
 	// Fields for the data obtained with the request (e.g., heart rate)
 	[System.NonSerialized]
