@@ -13,6 +13,8 @@ var port = new SerialPort('/dev/cu.usbmodem14101', {
 
 const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
 parser.on('data', function(data) {
-    console.log(data)
-    client.send('/oscAddress', parseInt(data))
+    if (data  != '0') {
+        console.log(data)
+        client.send('/oscAddress', data)
+    }
 });
