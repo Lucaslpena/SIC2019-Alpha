@@ -30,7 +30,7 @@ public class Collector : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(HRV);
+        //Debug.Log(HRV);
     }
 
 

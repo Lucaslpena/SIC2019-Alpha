@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ba4a416-a51a-417b-9eaf-4d12d7b8c6b0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SIC2019-Alpha/Assets/Collector/Collector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SIC2019-Alpha/Assets/Collector/Collector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SIC2019-Alpha/Assets/Scenes/printingMeanHRfromMIDAS.unity" beforeDir="false" afterPath="$PROJECT_DIR$/SIC2019-Alpha/Assets/Scenes/printingMeanHRfromMIDAS.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +30,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/MidasClient.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -37,11 +41,29 @@
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/MidasListener.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="35" selection-start-line="35" selection-end-line="35" />
+                <state relative-caret-position="554">
+                  <caret line="40" selection-start-line="40" selection-end-line="40" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/Scripts/ButtonsReceiver.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="453">
+                  <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/OSC/OSCReciever.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="571">
+                  <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -50,11 +72,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/Collector/Collector.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -68,11 +90,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/node/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+                <state relative-caret-position="255">
+                  <caret line="17" column="39" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -85,9 +107,15 @@
     <findStrings>
       <find>seconds</find>
       <find>float</find>
+      <find>hasWaitingMessages</find>
+      <find>Queue</find>
+      <find>_queue</find>
+      <find>MidasListener</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts</dir>
+      <dir>$PROJECT_DIR$/SIC2019-Alpha/Assets/OSC</dir>
+      <dir>$PROJECT_DIR$/SIC2019-Alpha</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -99,8 +127,10 @@
         <option value="$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/MidasClient.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/MidasListener.cs" />
-        <option value="$PROJECT_DIR$/SIC2019-Alpha/Assets/Collector/Collector.cs" />
         <option value="$PROJECT_DIR$/node/index.js" />
+        <option value="$PROJECT_DIR$/SIC2019-Alpha/Assets/Collector/Collector.cs" />
+        <option value="$PROJECT_DIR$/SIC2019-Alpha/Assets/OSC/OSCReciever.cs" />
+        <option value="$PROJECT_DIR$/SIC2019-Alpha/Assets/Scripts/ButtonsReceiver.cs" />
       </list>
     </option>
   </component>
@@ -128,6 +158,24 @@
               <item name="SIC2019-Alpha" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIC2019-Alpha" type="462c0819:PsiDirectoryNode" />
               <item name="node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIC2019-Alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIC2019-Alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="SIC2019-Alpha" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIC2019-Alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIC2019-Alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="SIC2019-Alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIC2019-Alpha" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIC2019-Alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="SIC2019-Alpha" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+              <item name="Collector" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -209,10 +257,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11358000" />
+    <option name="totallyTimeSpent" value="16395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-280" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17838125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -221,7 +270,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32928064" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -263,20 +312,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/MidasClient.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        <state relative-caret-position="270">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/GenericListener.cs">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/Collector/Collector.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -285,17 +327,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/index.js">
+    <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/MidasListener.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="554">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/MidasIntegration/Scripts/MidasListener.cs">
+    <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/OSC/OSCReciever.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="571">
+          <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/Collector/Collector.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SIC2019-Alpha/Assets/Scripts/ButtonsReceiver.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
         </state>
       </provider>
     </entry>
