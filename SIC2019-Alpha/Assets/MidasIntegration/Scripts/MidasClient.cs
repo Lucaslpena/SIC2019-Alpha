@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using LitJson;
+using System;
 
 /**
  * Class that acts as a client for MIDAS, sending requests.
@@ -10,9 +11,12 @@ using LitJson;
  * It sends requests to the MidasAddress specified, using the
  * MidasRequest specified, returning the result.
  */
-public class MidasClient : MonoBehaviour {
+public class MidasClient : MonoBehaviour
+{
 
-	/**
+    private MidasListener midasListener;
+
+    /**
 	 * Private function for performing a request.
 	 * Sends the MidasRequest to the dispatcher at MidasAddress.
 	 * 
@@ -20,18 +24,56 @@ public class MidasClient : MonoBehaviour {
 	 * @param request Request to be performed to the MIDAS dispatcher
 	 * @return Response (all of it) of the dispatcher as JsonData
 	 */
-	private JsonData PerformRequest(MidasAddress address, MidasRequest request) {
-		// Perform the request
-		string response = new WebClient ().DownloadString (address.address + request.request);
+    private JsonData PerformRequest(MidasAddress address, MidasRequest request)
+    {
+        // Perform the request
+        string response = new WebClient().DownloadString(address.address + request.request);
 
-		// Format the JSON string appropriately
-		response = response.Replace ("[{", "{").Replace ("}]", "}"); // Remove the starting and ending brackets so that LitJson can parse it
+        // Format the JSON string appropriately
+        response = response.Replace("[{", "{").Replace("}]", "}"); // Remove the starting and ending brackets so that LitJson can parse it
 
-		// Deserialize the JSON to an object
-		return JsonMapper.ToObject(response);
-	}
+        // Deserialize the JSON to an object
+        return JsonMapper.ToObject(response);
+    }
 
-	/**
+    private void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+    {
+        string response = e.Result;
+
+        // Format the JSON string appropriately
+        response = response.Replace("[{", "{").Replace("}]", "}"); // Remove the starting and ending brackets so that LitJson can parse it
+
+        // Deserialize the JSON to an object
+        JsonData data = JsonMapper.ToObject(response);
+
+        double[] res;
+        // Put the data into an array
+        if (data["return"].IsArray)
+        {
+            res = new double[data["return"].Count];
+            for (int i = 0; i < data["return"].Count; i++)
+            {
+                res[i] = (double)data["return"][i];
+            }
+        }
+        else
+        {
+            res = new double[] { (double)data["return"] };
+        }
+
+        // Return the data array
+        midasListener.SetClientData(res);
+    }
+
+    private void PerformRequestAsync(MidasAddress address, MidasRequest request)
+    {
+        // Perform the request
+        WebClient wc = new WebClient();
+        wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(wc_DownloadStringCompleted);
+        wc.DownloadStringAsync(new Uri(address.address + request.request));
+    }
+
+    /**
 	 * Uses PerformRequest the MidasRequest to the dispatcher at MidasAddress.
 	 * It returns the result as an array of double.
 	 * 
@@ -39,26 +81,15 @@ public class MidasClient : MonoBehaviour {
 	 * @param request Request to be performed to the MIDAS dispatcher
 	 * @return Result of the request as an array of double
 	 */
-	public double[] SendRequest(MidasAddress address, MidasRequest request) {
-		// Get the response as JsonData
-		JsonData data = PerformRequest(address, request);
+    public void SendRequest(MidasListener midasListener, MidasAddress address, MidasRequest request)
+    {
+        this.midasListener = midasListener;
+        // Get the response as JsonData
+        //JsonData data = PerformRequestAsync(address, request);
+        PerformRequestAsync(address, request);
+    }
 
-		double[] res;
-		// Put the data into an array
-		if (data ["return"].IsArray) {
-			res = new double[data ["return"].Count];
-			for (int i = 0; i < data ["return"].Count; i++) {
-				res [i] = (double)data ["return"] [i];
-			}
-		} else {
-			res = new double[] {(double)data ["return"]};
-		}
-
-		// Return the data array
-		return res;
-	}
-
-	/**
+    /**
 	 * Uses PerformRequest the MidasRequest to the dispatcher at MidasAddress.
 	 * It returns the result as a raw JsonData that will have to be
 	 * manually casted to its natural data type by the caller.
@@ -68,11 +99,12 @@ public class MidasClient : MonoBehaviour {
 	 * @param request Request to be performed to the MIDAS dispatcher
 	 * @return Result of the request as JsonData
 	 */
-	public JsonData SendRequestRaw(MidasAddress address, MidasRequest request) {
-		// Get the response as JsonData
-		JsonData data = PerformRequest(address, request);
+    public JsonData SendRequestRaw(MidasAddress address, MidasRequest request)
+    {
+        // Get the response as JsonData
+        JsonData data = PerformRequest(address, request);
 
-		// Return the "return" data
-		return data["return"];
-	}
+        // Return the "return" data
+        return data["return"];
+    }
 }

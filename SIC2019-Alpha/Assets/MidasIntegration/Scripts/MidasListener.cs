@@ -21,13 +21,18 @@ abstract public class MidasListener : MonoBehaviour {
 	[System.NonSerialized]
 	public double[] data;
 
-	protected double[] GetClientData () {
-		// Get the data using the client to send the request to the MIDAS address
-		data = midasClient.SendRequest (midasAddress, midasRequest);
-		return data;
+	protected void GetClientData () {
+        // Get the data using the client to send the request to the MIDAS address
+        midasClient.SendRequest(this, midasAddress, midasRequest);
 	}
 
-	protected void Start() {
+    public double[] SetClientData(double[] clientData)
+    {
+        data = clientData;
+        return data;
+    }
+
+    protected void Start() {
 		// Perform a request every few seconds, specified by repeatFrecuencySeconds
 		if (repeat)
 			InvokeRepeating ("GetClientData", 0f, repeatFrecuencySeconds);

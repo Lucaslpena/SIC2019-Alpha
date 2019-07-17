@@ -15,12 +15,13 @@ public class GenericListener : MidasListener {
 	void Update () {
 		// Only if the listener gets data automatically
 		if (repeat)
-			genericData = data [0];
+            if (data != null && data.Length > 0)
+			    genericData = data [0];
 	}
 
 	// Change the name of this function to the true data meaning (e.g. GetArousal)
-	public double GetGenericData () {
+	/*public double GetGenericData () {
 		// If we want to get data on demand at any specific moment
 		return base.GetClientData () [0];
-	}
+	}*/
 }
