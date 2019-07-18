@@ -26,9 +26,9 @@ public class BeatController : MonoBehaviour
 
     private int quartina;
 
-    //private float UnityTempo;
     public float Tempo = 60;
 
+    public Collector Collector;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,7 @@ public class BeatController : MonoBehaviour
         _hatsC = new List<GameObject>();
 
         StartCoroutine(SpawnCube());
+        //StartCoroutine(UpdateTempo());
     }
 
     // Update is called once per frame
@@ -88,7 +89,6 @@ public class BeatController : MonoBehaviour
         string[] instruments = Beat._beat[quartina];
         for(int i = 0; i<instruments.Length; i++)
         {
-            Debug.Log("siamo con la I: " + i + " ---> " + instruments[i]);
             if (CheckInstruments(instruments[i]))
             {
                 IstantiateCube(i);
@@ -106,12 +106,11 @@ public class BeatController : MonoBehaviour
         {
             return false;
         }
-
     }
 
     private GameObject CreateCube(Transform cubePosition, GameObject cube)
     {
-        GameObject g = Instantiate(cube, cubePosition.position + new Vector3(0, 0, 60 * 2), Quaternion.identity, this.transform);
+        GameObject g = Instantiate(cube, cubePosition.position + new Vector3(0, 0, 240), Quaternion.identity, this.transform);
         g.transform.localScale = Vector3.one * 20f;
         return g;
     }
@@ -120,7 +119,7 @@ public class BeatController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(60/Tempo);
+            yield return new WaitForSeconds(15/Tempo);
             IstantiateBeatCube();
         }
     }
@@ -147,6 +146,19 @@ public class BeatController : MonoBehaviour
                 break;
         }
         Destroy(cube);
+    }
+
+    private IEnumerator UpdateTempo()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(10f);
+            float changeFactor = (float)Collector.changeSDNN;
+            if (changeFactor > 0)
+            {
+                Tempo *= changeFactor;
+            }
+        }
     }
 
 

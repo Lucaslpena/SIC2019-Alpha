@@ -13,14 +13,16 @@ public class GameController : MonoBehaviour
     public UIController UiController;
 
     private int score;
+    private bool lastCube;
+    private bool currentCube; 
+
     public int Streak;
-    private int lastCube;
-    private int currentCube; 
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+        Streak = 0;
         InputManager.OnPushHatsO += OnPushHatsO; 
         InputManager.OnPushSnares += OnPushSnares; 
         InputManager.OnPushKicks += OnPushKicks; 
@@ -40,18 +42,29 @@ public class GameController : MonoBehaviour
 
     private void UpdateScore(float distance)
     {
-        Debug.Log(distance);
         // if done to check the distance and assign point based on the distance
         if(distance <= distancePerfect)
         {
+            lastCube = currentCube;
+            currentCube = true;
+
             Debug.Log("Perfect");
+
             score += 2;
+            if(lastCube && currentCube)
+            {
+                Streak++;
+            }
         } else if (distance <= distanceGood && distance > distancePerfect)
         {
+            currentCube = false;
+            Streak = 0;
             Debug.Log("Good");
             score++;
         } else
         {
+            currentCube = false;
+            Streak = 0;
             score--;
             Debug.Log("Bad");
         }
