@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 739975079}
   - component: {fileID: 739975080}
   - component: {fileID: 739975081}
+  - component: {fileID: 739975082}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -489,6 +490,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BeatController: {fileID: 456941100}
   TextFile: {fileID: 4900000, guid: b7b4f2169cb0343fe82da758123efe5f, type: 3}
+--- !u!114 &739975082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739975076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9673f669b3ea4828a0a7022fec95646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 3333
+  button1: 0
+  button2: 0
+  button3: 0
+  button4: 0
 --- !u!1 &839923195
 GameObject:
   m_ObjectHideFlags: 0

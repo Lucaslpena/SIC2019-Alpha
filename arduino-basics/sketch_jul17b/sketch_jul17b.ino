@@ -59,15 +59,11 @@ void loop() {
 
 
   if (Serial.available() >= 0) {
-
-
      // read the state of the pushbutton value:
-
       bool bt1  = false;
       bool bt2  = false;
       bool bt3  = false; 
       bool bt4 = false;
-
 
      /* 1st button */
             buttonState = digitalRead(buttonPin);
@@ -133,19 +129,9 @@ void encodeButtons(bool b1, bool b2, bool b3, bool b4){
 
 
   int message = value1 + value2 + value3 + value4;
-
-  
-
   Serial.println(message);
-  
-  
-  
 }
 
 
 void establishContact() {
-//  while (Serial.available() <= 0) {
-//    Serial.print('A');   // send a capital A
-//    delay(300);
-//  }
 }

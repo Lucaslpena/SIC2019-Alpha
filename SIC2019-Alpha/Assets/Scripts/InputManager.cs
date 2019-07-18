@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
     public static event PushButton OnPushKicks;
     public static event PushButton OnPushHatsC;
 
+    public ButtonsReceiver ButtonReceiver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +21,19 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (ButtonReceiver.button1)
         {
             OnPushHatsO();
         }
-        if (Input.GetKeyDown(KeyCode.B))
+        if (ButtonReceiver.button2)
         {
             OnPushSnares();
         }
-        if (Input.GetKeyDown(KeyCode.N))
+        if (ButtonReceiver.button3)
         {
             OnPushKicks();
         }
-        if (Input.GetKeyDown(KeyCode.M))
+        if (ButtonReceiver.button4)
         {
             OnPushHatsC();
         }
