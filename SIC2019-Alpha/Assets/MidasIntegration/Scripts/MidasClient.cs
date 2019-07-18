@@ -13,9 +13,6 @@ using System;
  */
 public class MidasClient : MonoBehaviour
 {
-
-    private MidasListener midasListener;
-
     /**
 	 * Private function for performing a request.
 	 * Sends the MidasRequest to the dispatcher at MidasAddress.
@@ -36,7 +33,7 @@ public class MidasClient : MonoBehaviour
         return JsonMapper.ToObject(response);
     }
 
-    private void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+    private void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e, MidasListener midasListener)
     {
         string response = e.Result;
 
@@ -65,11 +62,11 @@ public class MidasClient : MonoBehaviour
         midasListener.SetClientData(res);
     }
 
-    private void PerformRequestAsync(MidasAddress address, MidasRequest request)
+    private void PerformRequestAsync(MidasListener midasListener, MidasAddress address, MidasRequest request)
     {
         // Perform the request
         WebClient wc = new WebClient();
-        wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(wc_DownloadStringCompleted);
+        wc.DownloadStringCompleted += (sender, e) => wc_DownloadStringCompleted(sender, e, midasListener);
         wc.DownloadStringAsync(new Uri(address.address + request.request));
     }
 
@@ -83,10 +80,9 @@ public class MidasClient : MonoBehaviour
 	 */
     public void SendRequest(MidasListener midasListener, MidasAddress address, MidasRequest request)
     {
-        this.midasListener = midasListener;
         // Get the response as JsonData
         //JsonData data = PerformRequestAsync(address, request);
-        PerformRequestAsync(address, request);
+        PerformRequestAsync(midasListener, address, request);
     }
 
     /**
