@@ -14,14 +14,18 @@ public class Collector : MonoBehaviour {
 
     public double HR;
     public double IBI;
+    public double SDNN;
     public double changeHR;
     public double changeIBI;
+    public double changeSDNN;
 
    	public float repeatFrecuencySeconds;
     public MidasListener midasHRListener;
     public MidasListener midasIBIListener;
+    public MidasListener midasSDNNListener;
     public MidasListener midasChangeHRListener;
     public MidasListener midasChangeIBIListener;
+    public MidasListener midasChangeSDNNListener;
 
     public bool printData;
 
@@ -41,8 +45,10 @@ public class Collector : MonoBehaviour {
         if (printData) {
             Debug.Log("HR: " + HR);
             Debug.Log("IBI: " + IBI);
+            Debug.Log("SDNN: " + SDNN);
             Debug.Log("Change HR: " + changeHR);
             Debug.Log("Change IBI: " + changeIBI);
+            Debug.Log("Change SDNN: " + changeSDNN);
         }
     }
 
@@ -75,10 +81,14 @@ public class Collector : MonoBehaviour {
             HR = midasHRListener.data[0];
         if (midasIBIListener != null && midasIBIListener.data.Length > 0)
             IBI = midasIBIListener.data[0];
+        if (midasSDNNListener != null && midasSDNNListener.data.Length > 0)
+            SDNN = midasSDNNListener.data[0];
         if (midasChangeHRListener != null && midasChangeHRListener.data.Length > 0)
             changeHR = midasChangeHRListener.data[0];
         if (midasChangeIBIListener != null && midasChangeIBIListener.data.Length > 0)
             changeIBI = midasChangeIBIListener.data[0];
+        if (midasChangeSDNNListener != null && midasChangeSDNNListener.data.Length > 0)
+            changeSDNN = midasChangeSDNNListener.data[0];
     }
 
 

@@ -19,6 +19,12 @@ def _mean_ibi(x, sampling_rate):
     print(measures['ibi'])
     return measures['ibi']
 
+def _mean_sdnn(x, sampling_rate):
+    print("computing mean_sdnn")
+    working_data, measures = heartpy.process(np.array(x), sample_rate=sampling_rate)
+    print(measures['sdnn'])
+    return measures['sdnn']
+
 
 # ECG processing node
 class ECGNode(BaseNode):
@@ -30,8 +36,10 @@ class ECGNode(BaseNode):
         # Append function handles to the metric_functions-list
         self.metric_functions.append(self.mean_hr)
         self.metric_functions.append(self.mean_ibi)
+        self.metric_functions.append(self.mean_sdnn)
         self.metric_functions.append(self.change_hr)
         self.metric_functions.append(self.change_ibi)
+        self.metric_functions.append(self.change_sdnn)
     
     def mean_hr(self, x):
         print("computing mean_hr")
@@ -44,6 +52,12 @@ class ECGNode(BaseNode):
         working_data, measures = heartpy.process(np.array(x['data'][0]), sample_rate=self.primary_sampling_rate)
         print(measures['ibi'])
         return measures['ibi']
+    
+    def mean_sdnn(self, x):
+        print("computing mean_sdnn")
+        working_data, measures = heartpy.process(np.array(x['data'][0]), sample_rate=self.primary_sampling_rate)
+        print(measures['sdnn'])
+        return measures['sdnn']
     
     def change_hr(self, x):
         """ Returns the change in HR, computed using averages of HR of two overlapping time windows. """
@@ -78,6 +92,24 @@ class ECGNode(BaseNode):
         if len(data_short) > 0 and len(data_long) > 0:
             print("computing change in IBI")
             return _mean_ibi(data_short, self.primary_sampling_rate) / _mean_ibi(data_long, self.primary_sampling_rate)
+        else:
+            return 0
+        
+    def change_sdnn(self, x):
+        """ Returns the change in SDNN, computed using averages of SDNN of two overlapping time windows. """
+        """ It uses a short window and a long window and compares the difference. """
+        """ The long window has to be equal or shorther than the time window that """
+        """ this function receives (usually equal), and the short window has to be """
+        """ equal or shorter than the long window (usually shorter). """
+        short_time_window = 10 # seconds
+        long_time_window = 30 # seconds
+        
+        data_long = x['data'][0]
+        data_short = data_long[len(data_long) - int(len(data_long)*(short_time_window/long_time_window)):]
+        
+        if len(data_short) > 0 and len(data_long) > 0:
+            print("computing change in SDNN")
+            return _mean_sdnn(data_short, self.primary_sampling_rate) / _mean_sdnn(data_long, self.primary_sampling_rate)
         else:
             return 0
 
