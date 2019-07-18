@@ -111,7 +111,8 @@ public class BeatController : MonoBehaviour
     private GameObject CreateCube(Transform cubePosition, GameObject cube)
     {
         GameObject g = Instantiate(cube, cubePosition.position + new Vector3(0, 0, 240), Quaternion.identity, this.transform);
-        g.transform.localScale = Vector3.one * 20f;
+        g.transform.localScale = Vector3.one * 40f;
+        g.transform.Rotate(new Vector3(90f, 0, 0));
         return g;
     }
 
