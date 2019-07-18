@@ -11,6 +11,10 @@ var port = new SerialPort('/dev/cu.usbmodem14101', {
     baudRate: 9600,
 });
 
+port.on("error", function (error) {
+    console.log("An error occurred: ", error.message);
+});
+
 const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
 parser.on('data', function(data) {
     if (data  != '0') {
