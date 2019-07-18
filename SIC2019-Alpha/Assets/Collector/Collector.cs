@@ -77,17 +77,17 @@ public class Collector : MonoBehaviour {
 
     public void GetData()
     {
-        if (midasHRListener != null && midasHRListener.data.Length > 0)
+        if (midasHRListener != null && midasHRListener.data != null && midasHRListener.data.Length > 0)
             HR = midasHRListener.data[0];
-        if (midasIBIListener != null && midasIBIListener.data.Length > 0)
+        if (midasIBIListener != null && midasIBIListener.data != null && midasIBIListener.data.Length > 0)
             IBI = midasIBIListener.data[0];
-        if (midasSDNNListener != null && midasSDNNListener.data.Length > 0)
+        if (midasSDNNListener != null && midasSDNNListener.data != null && midasSDNNListener.data.Length > 0)
             SDNN = midasSDNNListener.data[0];
-        if (midasChangeHRListener != null && midasChangeHRListener.data.Length > 0)
+        if (midasChangeHRListener != null && midasChangeHRListener.data != null && midasChangeHRListener.data.Length > 0)
             changeHR = midasChangeHRListener.data[0];
-        if (midasChangeIBIListener != null && midasChangeIBIListener.data.Length > 0)
+        if (midasChangeIBIListener != null && midasChangeIBIListener.data != null && midasChangeIBIListener.data.Length > 0)
             changeIBI = midasChangeIBIListener.data[0];
-        if (midasChangeSDNNListener != null && midasChangeSDNNListener.data.Length > 0)
+        if (midasChangeSDNNListener != null && midasChangeSDNNListener.data != null && midasChangeSDNNListener.data.Length > 0)
             changeSDNN = midasChangeSDNNListener.data[0];
     }
 

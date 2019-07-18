@@ -210,6 +210,11 @@ PrefabInstance:
       propertyPath: metricType
       value: mean_ibi
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
 --- !u!4 &84663340 stripped
@@ -468,6 +473,11 @@ PrefabInstance:
       propertyPath: metricType
       value: change_hr
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
 --- !u!1 &741212677
@@ -553,7 +563,7 @@ MonoBehaviour:
   changeHR: 0
   changeIBI: 0
   changeSDNN: 0
-  repeatFrecuencySeconds: 0.5
+  repeatFrecuencySeconds: 2
   midasHRListener: {fileID: 1631825727}
   midasIBIListener: {fileID: 354900249}
   midasSDNNListener: {fileID: 1547058463}
@@ -664,6 +674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: metricType
       value: change_ibi
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
@@ -1023,6 +1038,11 @@ PrefabInstance:
       propertyPath: metricType
       value: change_sdnn
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
 --- !u!4 &1373424107 stripped
@@ -1182,6 +1202,11 @@ PrefabInstance:
       propertyPath: metricType
       value: mean_sdnn
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
 --- !u!4 &1547058461 stripped
@@ -1303,6 +1328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: metricType
       value: mean_hr
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
