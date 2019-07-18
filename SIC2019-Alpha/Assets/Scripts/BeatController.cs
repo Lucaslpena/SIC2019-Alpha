@@ -49,7 +49,6 @@ public class BeatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(quartina);
     }
 
     private void IstantiateCube(int instrument)
@@ -85,7 +84,7 @@ public class BeatController : MonoBehaviour
 
     private void IstantiateBeatCube()
     {
-        if(quartina == 5)
+        if(quartina == Beat._beat.Count)
         {
             quartina = 0;
         }
