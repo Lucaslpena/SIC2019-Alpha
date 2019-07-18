@@ -14,9 +14,6 @@ public class BeatController : MonoBehaviour
         HatC
     }
 
-    public Transform minBoundary;
-    public Transform maxBoundary;
-
     public GameObject KickPrefab, HatOpenPrefab, HatClosedPrefab, SnarePrefab;
     public Transform Kick, HatO, HatC, Snare;
 
@@ -130,13 +127,10 @@ public class BeatController : MonoBehaviour
 
     public void DisposeCube(GameObject cube, int cubeType)
     {
-//        Debug.Log("cubeType: " + cubeType);
         switch (cubeType)
         {
             case (int)CubeType.HatO:
-                //Debug.Log("before: " + _hatsO.Count + " name cube: " + cube.name);
                 _hatsO.Remove(cube);
-                //Debug.Log("after " + _hatsO.Count);
                 break;
             case (int)CubeType.Snare:
                 _snares.Remove(cube);
