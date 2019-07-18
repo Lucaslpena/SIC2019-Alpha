@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8783921068258193294
 Transform:
   m_ObjectHideFlags: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   changeHR: 0
   changeIBI: 0
   changeSDNN: 0
-  repeatFrecuencySeconds: 0.5
+  repeatFrecuencySeconds: 2
   midasHRListener: {fileID: 5854231315959349791}
   midasIBIListener: {fileID: 5854231315333714226}
   midasSDNNListener: {fileID: 5854231315986182149}
@@ -181,6 +181,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: time_window.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
         type: 3}
       propertyPath: midasClient
@@ -200,21 +210,6 @@ PrefabInstance:
         type: 3}
       propertyPath: repeatFrecuencySeconds
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[0]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: metricType
-      value: mean_hr
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
@@ -303,6 +298,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: metricType
+      value: mean_sdnn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: time_window.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
         type: 3}
       propertyPath: midasClient
@@ -322,21 +332,6 @@ PrefabInstance:
         type: 3}
       propertyPath: repeatFrecuencySeconds
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[0]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: metricType
-      value: mean_sdnn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
@@ -425,6 +420,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: metricType
+      value: change_sdnn
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: time_window.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
         type: 3}
       propertyPath: midasClient
@@ -444,21 +454,6 @@ PrefabInstance:
         type: 3}
       propertyPath: repeatFrecuencySeconds
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[0]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: metricType
-      value: change_sdnn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
@@ -547,6 +542,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: metricType
+      value: mean_ibi
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: time_window.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
         type: 3}
       propertyPath: midasClient
@@ -566,21 +576,6 @@ PrefabInstance:
         type: 3}
       propertyPath: repeatFrecuencySeconds
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[0]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: metricType
-      value: mean_ibi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
@@ -761,6 +756,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: metricType
+      value: change_ibi
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: time_window.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
         type: 3}
       propertyPath: midasClient
@@ -780,21 +790,6 @@ PrefabInstance:
         type: 3}
       propertyPath: repeatFrecuencySeconds
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[0]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: metricType
-      value: change_ibi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}
@@ -883,6 +878,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: nodeName
+      value: ecgnode1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: metricType
+      value: change_hr
+      objectReference: {fileID: 0}
+    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+        type: 3}
+      propertyPath: time_window.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
         type: 3}
       propertyPath: midasClient
@@ -902,21 +912,6 @@ PrefabInstance:
         type: 3}
       propertyPath: repeatFrecuencySeconds
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[0]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: time_window.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006062692474670, guid: 5b66f91b5d24e7646b9ff76db2616b33,
-        type: 3}
-      propertyPath: metricType
-      value: change_hr
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b66f91b5d24e7646b9ff76db2616b33, type: 3}

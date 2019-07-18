@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MidiJack.MidiMaster.GetKeyDown(0, 48))
+        /*if (MidiJack.MidiMaster.GetKeyDown(0, 48))
         {
             OnPushHatsO();
         }
@@ -34,24 +34,24 @@ public class InputManager : MonoBehaviour
         if (MidiJack.MidiMaster.GetKeyDown(0, 51))
         {
             OnPushHatsC();
-        }
+        }*/
 
-        //if (Input.GetKeyDown(KeyCode.V))
-        //{
-        //    OnPushHatsO();
-        //}
-        //if (Input.GetKeyDown(KeyCode.B))
-        //{
-        //    OnPushSnares();
-        //}
-        //if (Input.GetKeyDown(KeyCode.N))
-        //{
-        //    OnPushKicks();
-        //}
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //    OnPushHatsC();
-        //}
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            OnPushHatsO();
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            OnPushSnares();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            OnPushKicks();
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            OnPushHatsC();
+        }
     }
 
 }
