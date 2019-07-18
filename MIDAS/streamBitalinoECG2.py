@@ -8,8 +8,7 @@ import timeit
 from bitalino import BITalino
 
 
-#macAddress = "98:D3:31:90:3D:F0" # Not possible on macOS
-macAddress = "/dev/cu.BITalino-01-99-DevB"
+macAddress = "/dev/tty.bitalino-DevB"
 batteryThreshold = 30
 acqChannels = [0,1,2,3,4,5]
 defaultChannel = 4;
@@ -40,7 +39,7 @@ while connection is 0:
 print(device.version())
 print("connected to BITalino(%s)" %macAddress)
 print("creating Signal stream...")
-info = StreamInfo('bitalino_ecg','ECG',1,samplingRate,'float32','sic2019-alpha')
+info = StreamInfo('bitalino_ecg2','ECG',1,samplingRate,'float32','sic2019-alpha')
 # next make an outlet
 outlet = StreamOutlet(info)
 print("created Signal stream : %s" %info.name())
