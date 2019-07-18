@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Collector : MonoBehaviour {
 
-    struct Reading {
+    /*struct Reading {
         public double[] ecgData;
         public int serial;
-    }
+    }*/
 
     private static Collector _instance;
     public static Collector Instance { get { return _instance; } }
 
-    public double HRV;
+    public double HR;
+    public double IBI;
+    public double changeHR;
+    public double changeIBI;
 
    	public float repeatFrecuencySeconds;
-    public MidasListener midasListener;
+    public MidasListener midasHRListener;
+    public MidasListener midasIBIListener;
+    public MidasListener midasChangeHRListener;
+    public MidasListener midasChangeIBIListener;
+
+    public bool printData;
 
 
     private void Awake()
@@ -30,14 +38,19 @@ public class Collector : MonoBehaviour {
 
     private void Update()
     {
-        //Debug.Log(HRV);
+        if (printData) {
+            Debug.Log("HR: " + HR);
+            Debug.Log("IBI: " + IBI);
+            Debug.Log("Change HR: " + changeHR);
+            Debug.Log("Change IBI: " + changeIBI);
+        }
     }
 
-
+    /*
     public void GetData()
     {
         Reading r;
-        double[] recentAffective = midasListener.data;
+        double[] recentAffective = midasHRListener.data;
         r.ecgData = recentAffective;
 
         /** Here we will get data from Alayna
@@ -50,10 +63,24 @@ public class Collector : MonoBehaviour {
              doing daa stuff ere
 
         **/
-
+        /*
         if (r.ecgData != null && r.ecgData.Length > 0)
             HRV = r.ecgData[0]; //this is fake and obviously should be tarnsformed in something mentioned above...
+        HRV = midasHRListener.data[0];
+    }*/
+
+    public void GetData()
+    {
+        if (midasHRListener != null && midasHRListener.data.Length > 0)
+            HR = midasHRListener.data[0];
+        if (midasIBIListener != null && midasIBIListener.data.Length > 0)
+            IBI = midasIBIListener.data[0];
+        if (midasChangeHRListener != null && midasChangeHRListener.data.Length > 0)
+            changeHR = midasChangeHRListener.data[0];
+        if (midasChangeIBIListener != null && midasChangeIBIListener.data.Length > 0)
+            changeIBI = midasChangeIBIListener.data[0];
     }
+
 
     protected void Start() {
         InvokeRepeating ("GetData", 0f, repeatFrecuencySeconds);

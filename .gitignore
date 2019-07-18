@@ -34,3 +34,6 @@ ehthumbs.db
 Thumbs.db
 
 ./.idea/
+/.idea/
+
+/node/node_modules/
