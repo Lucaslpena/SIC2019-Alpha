@@ -22,3 +22,9 @@ parser.on('data', function(data) {
         client.send('/oscAddress', data)
     }
 });
+
+
+setInterval(function(){
+    client.send('/data', 'data');
+    console.log("sent test");
+}, 2000);
