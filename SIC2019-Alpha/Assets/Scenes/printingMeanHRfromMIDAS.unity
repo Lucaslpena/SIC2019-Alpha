@@ -556,10 +556,10 @@ MonoBehaviour:
   repeatFrecuencySeconds: 0.5
   midasHRListener: {fileID: 1631825727}
   midasIBIListener: {fileID: 354900249}
-  midasSDNNListener: {fileID: 0}
+  midasSDNNListener: {fileID: 1547058463}
   midasChangeHRListener: {fileID: 104714943}
   midasChangeIBIListener: {fileID: 1067230232}
-  midasChangeSDNNListener: {fileID: 0}
+  midasChangeSDNNListener: {fileID: 1373424109}
   printData: 1
 --- !u!4 &772414250
 Transform:
@@ -1043,6 +1043,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a689753e2014bc4a87ecc960a523d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1373424109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+    type: 3}
+  m_PrefabInstance: {fileID: 1373424106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12943e9d57e7e4bbbe0e41d481ac94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1533248527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1200,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a689753e2014bc4a87ecc960a523d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1547058463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114933773145333616, guid: 5b66f91b5d24e7646b9ff76db2616b33,
+    type: 3}
+  m_PrefabInstance: {fileID: 1547058460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb12943e9d57e7e4bbbe0e41d481ac94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1591561990
