@@ -23,12 +23,10 @@ public class HeartBeat : MonoBehaviour {
             secondsBetweenBeats = 60f / (float)collector.HR;
             if (transform.localScale.magnitude >= heartSizeExpanded.magnitude)
             {
-                Debug.Log("ANIMATION TO CONTRACT");
                 StartCoroutine(BeatHeart(heartSizeContracted, secondsBetweenBeats * pctToContracted));
             }
             else if (transform.localScale.magnitude <= heartSizeContracted.magnitude)
             {
-                Debug.Log("ANIMATION TO EXPAND");
                 StartCoroutine(BeatHeart(heartSizeExpanded, secondsBetweenBeats * pctToExpanded));
             }
         }
