@@ -11,6 +11,10 @@ public class InputManager : MonoBehaviour
     public static event PushButton OnPushKicks;
     public static event PushButton OnPushHatsC;
 
+    public ButtonsReceiver ButtonsReceiver;
+
+    public bool UseKeyboard, UseButtons, UseMidi;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +23,20 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (MidiJack.MidiMaster.GetKeyDown(0, 48))
+        if (UseButtons)
         {
-            OnPushHatsO();
+            UpdateButtons();
+        } else if (UseKeyboard)
+        {
+            UpdateKeyboard();
+        } else
+        {
+            UpdateMidi();
         }
-        if (MidiJack.MidiMaster.GetKeyDown(0, 49))
-        {
-            OnPushSnares();
-        }
-        if (MidiJack.MidiMaster.GetKeyDown(0, 50))
-        {
-            OnPushKicks();
-        }
-        if (MidiJack.MidiMaster.GetKeyDown(0, 51))
-        {
-            OnPushHatsC();
-        }*/
+    }
 
+    private void UpdateKeyboard()
+    {
         if (Input.GetKeyDown(KeyCode.V))
         {
             OnPushHatsO();
@@ -49,6 +50,47 @@ public class InputManager : MonoBehaviour
             OnPushKicks();
         }
         if (Input.GetKeyDown(KeyCode.M))
+        {
+            OnPushHatsC();
+        }
+    }
+
+    private void UpdateButtons()
+    {
+        if (ButtonsReceiver.button1)
+        {
+            OnPushHatsO();
+        }
+        if (ButtonsReceiver.button2)
+        {
+            OnPushSnares();
+        }
+        if (ButtonsReceiver.button3)
+        {
+            OnPushKicks();
+        }
+        if (ButtonsReceiver.button4)
+        {
+            OnPushHatsC();
+        }
+    }
+
+    private void UpdateMidi()
+    {
+
+        if (MidiJack.MidiMaster.GetKeyDown(0, 48))
+        {
+            OnPushHatsO();
+        }
+        if (MidiJack.MidiMaster.GetKeyDown(0, 49))
+        {
+            OnPushSnares();
+        }
+        if (MidiJack.MidiMaster.GetKeyDown(0, 50))
+        {
+            OnPushKicks();
+        }
+        if (MidiJack.MidiMaster.GetKeyDown(0, 51))
         {
             OnPushHatsC();
         }

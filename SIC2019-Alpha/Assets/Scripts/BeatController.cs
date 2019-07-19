@@ -26,9 +26,10 @@ public class BeatController : MonoBehaviour
 
     private int quartina;
 
-    public float Tempo = 60;
+    public float Tempo = 120;
 
     public Collector Collector;
+    public AudioController AudioController;
 
     // Start is called before the first frame update
     void Start()
@@ -155,10 +156,8 @@ public class BeatController : MonoBehaviour
         {
             yield return new WaitForSeconds(10f);
             float changeFactor = (float)Collector.changeSDNN;
-            if (changeFactor > 0)
-            {
-                Tempo *= changeFactor;
-            }
+            Tempo *= changeFactor;
+            AudioController.UpdateSongSpeed(changeFactor);
         }
     }
 

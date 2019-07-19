@@ -7,6 +7,7 @@ public class AudioController : MonoBehaviour
 {
 
     public AudioSource HatOpenSource, SnareSource, KicksSource, HatClosedSource;
+    private AudioSource Song;
     //public AudioClip HatOpen, Snare, Kick, HatClosed;
 
     // Start is called before the first frame update
@@ -17,6 +18,9 @@ public class AudioController : MonoBehaviour
         InputManager.OnPushHatsC += PlayHatsC;
         InputManager.OnPushHatsO += PlayHatsO;
         InputManager.OnPushSnares += PlaySnares;
+
+        Song = this.GetComponent<AudioSource>();
+        Song.Play();
     }
 
 
@@ -45,4 +49,10 @@ public class AudioController : MonoBehaviour
     {
         HatClosedSource.Play();
     }
+
+    public void UpdateSongSpeed(float factorofSpeed)
+    {
+        Song.pitch *= factorofSpeed; 
+    }
+
 }

@@ -73,16 +73,19 @@ public class GameController : MonoBehaviour
 
     private void OnPushHatsO()
     {
+            BeatController.HatO.gameObject.GetComponent<Animator>().SetTrigger("buttonPressed");
         if (BeatController._hatsO.Count > 0)
         {
             GameObject g = BeatController._hatsO[0];
             GetDistanceFromTarget(g.transform, BeatController.HatO);
             BeatController.DisposeCube(g, 0);
+            Destroy(g);
         }
     }
 
     private void OnPushSnares()
     {
+            BeatController.Snare.gameObject.GetComponent<Animator>().SetTrigger("buttonPressed");
         if (BeatController._snares.Count > 0)
         {
             GameObject g = BeatController._snares[0];
@@ -94,6 +97,7 @@ public class GameController : MonoBehaviour
 
     private void OnPushKicks()
     {
+            BeatController.Kick.gameObject.GetComponent<Animator>().SetTrigger("buttonPressed");
         if (BeatController._kicks.Count > 0)
         {
             GameObject g = BeatController._kicks[0];
@@ -105,6 +109,7 @@ public class GameController : MonoBehaviour
 
     private void OnPushHatsC()
     {
+            BeatController.HatC.gameObject.GetComponent<Animator>().SetTrigger("buttonPressed");
         if (BeatController._hatsC.Count > 0)
         {
             GameObject g = BeatController._hatsC[0];
@@ -118,7 +123,6 @@ public class GameController : MonoBehaviour
     {
 
     }
-
 
 
 }
