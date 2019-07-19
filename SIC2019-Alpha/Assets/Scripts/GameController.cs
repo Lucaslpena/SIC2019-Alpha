@@ -37,10 +37,10 @@ public class GameController : MonoBehaviour
 
     private void GetDistanceFromTarget(Transform cube, Transform target)
     {
-        UpdateScore(Vector3.Distance(cube.position, target.position));
+        UpdateScore(Vector3.Distance(cube.position, target.position), target.gameObject);
     }
 
-    private void UpdateScore(float distance)
+    private void UpdateScore(float distance, GameObject g)
     {
         // if done to check the distance and assign point based on the distance
         if(distance <= distancePerfect)
@@ -49,8 +49,9 @@ public class GameController : MonoBehaviour
             currentCube = true;
 
             Debug.Log("Perfect");
-
+            ActivateParticles(g);
             score += 2;
+            
             if(lastCube && currentCube)
             {
                 Streak++;
@@ -69,6 +70,13 @@ public class GameController : MonoBehaviour
             Debug.Log("Bad");
         }
         UiController.UpdateText(score);
+    }
+
+    private IEnumerator ActivateParticles(GameObject g)
+    {
+        g.GetComponent<ParticleSystem>().Play();
+        yield return new WaitForSeconds(1f);
+        g.GetComponent<ParticleSystem>().Stop();
     }
 
     private void OnPushHatsO()
